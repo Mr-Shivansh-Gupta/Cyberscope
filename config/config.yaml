@@ -1,0 +1,164 @@
+# ============================================================================
+# Cyberscope Configuration File
+# ============================================================================
+# This file contains default settings for the Cyberscope vulnerability scanner.
+# Modify these settings to customize the scanner behavior.
+#
+# All settings are optional and will use defaults if not specified.
+# ============================================================================
+
+# ============================================================================
+# SCANNING CONFIGURATION
+# ============================================================================
+
+# Timeout for HTTP requests (in seconds)
+# Valid range: 1-300 seconds
+# Default: 10 seconds
+timeout: 10
+
+# Number of concurrent threads for scanning
+# Valid range: 1-50 threads
+# Default: 5 threads
+# Higher values = faster scanning but more resource usage
+threads: 5
+
+# Number of retries for failed requests
+# Valid range: 0-10 retries
+# Default: 3 retries
+# Set to 0 to disable retries
+retries: 3
+
+# ============================================================================
+# LOGGING CONFIGURATION
+# ============================================================================
+
+# Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+# DEBUG: Most verbose, shows all details
+# INFO: General information and progress
+# WARNING: Only warnings and errors
+# ERROR: Only errors
+# CRITICAL: Only critical issues
+log_level: INFO
+
+# Path to log file
+# Set to null or empty string to disable file logging
+# Default: Cyberscope.log
+log_file: Cyberscope.log
+
+# ============================================================================
+# TARGET CONFIGURATION
+# ============================================================================
+
+# URL patterns to ignore during scanning (optional)
+# Useful for excluding logout links, external resources, etc.
+# Examples:
+#   - /logout
+#   - /admin
+#   - /api/payment
+ignore_links:
+  - /logout
+  - /admin
+  - /settings/logout
+
+# ============================================================================
+# AUTHENTICATION CONFIGURATION (Optional)
+# ============================================================================
+
+# Uncomment and configure if the target site requires authentication
+
+# Enable authentication
+# auth_required: false
+
+# Login URL
+# auth_url: http://example.com/login
+
+# Username for authentication
+# auth_username: user@example.com
+
+# Password for authentication
+# auth_password: password123
+
+# ============================================================================
+# PAYLOAD CONFIGURATION (Advanced)
+# ============================================================================
+
+# Customize which vulnerability types to test
+# test_xss: true
+# test_sqli: true
+# test_csrf: true
+
+# Custom XSS payloads (optional)
+# If not specified, built-in payloads will be used
+# custom_xss_payloads:
+#   - <script>alert('Custom')</script>
+#   - <img src=x onerror="alert('Custom')">
+
+# Custom SQL injection payloads (optional)
+# custom_sqli_payloads:
+#   - ' OR '1'='1
+#   - '; DROP TABLE users--
+
+# ============================================================================
+# OUTPUT CONFIGURATION
+# ============================================================================
+
+# Output report format(s)
+# Supported: json, csv, html, console
+# Default: console
+# output_format: console
+
+# Output directory for reports
+# output_dir: ./reports
+
+# Include raw HTTP request/response in reports
+# include_http_details: true
+
+# ============================================================================
+# PERFORMANCE TUNING
+# ============================================================================
+
+# Maximum number of links to crawl per domain
+# Set to 0 for unlimited
+# max_links: 1000
+
+# Maximum depth for recursive crawling
+# Deeper crawling = more thorough but slower
+# max_depth: 5
+
+# Delay between requests (in seconds)
+# Useful for avoiding rate limiting
+# delay_between_requests: 0.5
+
+# ============================================================================
+# PROXY CONFIGURATION (Optional)
+# ============================================================================
+
+# Uncomment to use a proxy
+
+# HTTP proxy URL
+# http_proxy: http://proxy.example.com:8080
+
+# HTTPS proxy URL
+# https_proxy: https://proxy.example.com:8080
+
+# Proxy authentication (if required)
+# proxy_username: user
+# proxy_password: password
+
+# ============================================================================
+# ADVANCED OPTIONS
+# ============================================================================
+
+# Enable verbose output
+# verbose: false
+
+# Follow redirects
+# follow_redirects: true
+
+# Verify SSL certificates
+# verify_ssl: true
+
+# Custom user agent
+# user_agent: "Mozilla/5.0 (Custom Scanner)"
+
+# ============================================================================
